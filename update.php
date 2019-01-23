@@ -4,10 +4,6 @@ $conn_string = "host=127.0.0.1 port=5432 dbname=appli_web user=appli_web passwor
 $conn = pg_connect($conn_string);
 
 
-/*if(!isset($_SESSION['id'])){
-  header("Location: connexion.php");
-}  */
-
 if(!empty($_GET['id']))
   {
     $id = checkInput($_GET['id']);
@@ -115,7 +111,6 @@ function checkInput($data)
     {
         $query2 = ("SELECT image FROM animals WHERE id = '$id'");
         $result = pg_query($conn, $query2);  
-        /*$image =        $animals['image'];  */  
     }
   }
 
@@ -123,10 +118,6 @@ function checkInput($data)
   {
       $query2 = ("SELECT * FROM animals WHERE id = '$id'");
       $result = pg_query($conn, $query2);  
-      /*$name =         $row['name'];
-      $description =  $row['description'];
-      $type =     $row['type'];
-      $image =        $row['image'];*/
   }
 
 
